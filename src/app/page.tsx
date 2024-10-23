@@ -1,9 +1,13 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+
+
+import HomeView from '../containers/home/home.view'
 
 export default function Main() {
   return (
-    <div>hi
-    </div>
+    <>
+      <HomeView>
+      </HomeView>
+    </>
   )
 }
