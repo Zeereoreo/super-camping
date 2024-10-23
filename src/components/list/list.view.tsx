@@ -5,9 +5,9 @@ export default function ListView(){
 
     return (
         <ListStyle.Container>
-            <ListStyle.Header.Container>
+            <ListStyle.List.Container>
                 here list view
-            </ListStyle.Header.Container>
+            </ListStyle.List.Container>
         </ListStyle.Container>
     )
 }
