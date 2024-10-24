@@ -1,7 +1,7 @@
 import { media } from "@/src/providers/theme/constants/media";
 import styled from "styled-components";
 
-export namespace HomeStyle{
+export namespace SidePageStyle{
     export const Container = styled.div`
         display: flex;
         flex-direction: column;
@@ -11,10 +11,10 @@ export namespace HomeStyle{
         height: 100vh;
         min-height: 100vh;
         border: 1px solid #000000;
-
+        
         ${media.width({
             small:`
-                
+                display : none;
             `
         })}
     `;

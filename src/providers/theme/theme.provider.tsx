@@ -1,3 +1,6 @@
+'use client'
+
+
 import { PropsWithChildren } from "react";
 import { ThemeProvider as StyledComponentThemeProvider } from "styled-components";
 import { useTheme } from "./theme.hook";

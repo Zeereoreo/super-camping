@@ -1,3 +1,6 @@
+'use client'
+
+
 import { PropsWithChildren } from "react";
 import { GlobalStyle } from "./global-style.style";
 

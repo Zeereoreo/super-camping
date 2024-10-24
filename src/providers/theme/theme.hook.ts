@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from "react";
 import { colors } from "./constants/colors";
 import { config } from "./constants/config";

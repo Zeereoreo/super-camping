@@ -1,3 +1,6 @@
+'use client'
+
+
 import "styled-components";
 import { colors } from "./constants/colors";
 import { config } from "./constants/config";
