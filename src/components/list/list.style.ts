@@ -2,17 +2,35 @@ import styled from "styled-components";
 
 export namespace ListStyle{
     export const Container = styled.div`
-        /* display: flex;
-        flex-direction: column; */
+        display: flex;
+        flex-direction: column;
         border: 1px solid #000000;
-        height: 80vh;
+        width: 100%;
+        height: 75vh;
+        min-height: 70vh;
     `;
 
     export namespace List{
         export const Container = styled.div`
             /* border: 1px solid #000000; */
-            height: 500px;
+            /* height: 500px; */
             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        `
+
+        export const Item = styled.div`
+            border: 1px solid #000000;
+            height: 30vh;
+            min-height: 30vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         `
     }
 }

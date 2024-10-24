@@ -5,9 +5,12 @@ export default function FooterView(){
 
     return (
         <FooterStyle.Container>
-            <FooterStyle.Header.Container>
-                here footer view
-            </FooterStyle.Header.Container>
+            <FooterStyle.List.Container>
+                <FooterStyle.List.Icon>home</FooterStyle.List.Icon>
+                <FooterStyle.List.Icon>search</FooterStyle.List.Icon>
+                <FooterStyle.List.Icon>heart</FooterStyle.List.Icon>
+                <FooterStyle.List.Icon>my</FooterStyle.List.Icon>
+            </FooterStyle.List.Container>
         </FooterStyle.Container>
     )
 }

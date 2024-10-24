@@ -13,7 +13,6 @@ const PageContainer = styled.div`
     ${media.width({
     small: `
       flex-direction: column;
-
     `,
     medium: `
       flex-direction: row;
