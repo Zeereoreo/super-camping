@@ -1,11 +1,14 @@
 
+import { useHeaderHook } from "./header.Hook";
 import { HeaderStyle } from "./header.style";
 
 export default function HeaderView(){
+    const {onClickedMainPage} = useHeaderHook();
+
 
     return (
         <HeaderStyle.Container>
-            <HeaderStyle.Logo.Container>
+            <HeaderStyle.Logo.Container onClick={onClickedMainPage}>
                 <HeaderStyle.Logo.Image>
                     Logo
                 </HeaderStyle.Logo.Image>

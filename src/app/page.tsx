@@ -10,6 +10,7 @@ const PageContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: green;
     ${media.width({
     small: `
       flex-direction: column;
