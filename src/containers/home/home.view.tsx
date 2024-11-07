@@ -5,20 +5,21 @@ import FooterView from "@/src/components/footer/footer.view";
 import MenuView from "@/src/components/menu/menu.view";
 import SidePageView from "../sidepage/sidepage.view";
 import { useMemo } from "react";
+import { useHomeHook } from "./home.hook";
 
 export default function HomeView() {
-
+    const {state} = useHomeHook();
     const OnClickedHome = useMemo(() =>{
         return (type : any) => () => {
 
         };
     },[])
-
+    // console.log(state);
     return (
             <HomeStyle.Container>
                 <HeaderView />
                 <MenuView />
-                <ListView />
+                <ListView data = {state}/>
                 <FooterView />
             </HomeStyle.Container>
     )

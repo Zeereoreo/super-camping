@@ -17,7 +17,7 @@ export namespace HeaderStyle{
             border: 1px solid #000000;
         `
         export const Image = styled.div`
-        
+            
         `
     }
 
