@@ -4,7 +4,7 @@ import { ListStyle } from "./list.style";
 
 export default function ListView({ data }: ListProps) {
 
-    console.log(data)
+    console.log(typeof data)
     return (
         <ListStyle.Container>
             <ListStyle.List.Container>

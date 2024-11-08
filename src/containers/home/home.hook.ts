@@ -8,6 +8,7 @@ export function useHomeHook(){
 
     const HomeList = async ()  => {
         const url = `?serviceKey=${process.env.SECRET_KEY}&numOfRows=${1}&pageNo=${1}&MobileOs=ETC&_type=json`
+        
         return campingClient.get(url)
     }
 
