@@ -5,12 +5,20 @@ import { Item } from '@/src/components/list/list.prop';
 
 export function useHomeHook(){
     const [state, setState] =  useState<Item[]>([]);
-
-    const HomeList = async ()  => {
-        const url = `?serviceKey=${process.env.SECRET_KEY}&numOfRows=${1}&pageNo=${1}&MobileOs=ETC&_type=json`
+    const SECRET_KEY = process.env.SECRET_KEY || "%2BPnRJoZ%2FqDJge4VIR%2BdEaIx4vj5SOgOZng%2BbDyn0vYDd8g3bOsFGrGQF%2BdMB%2FI2rT1JKOHVx1LnoEJdg81ELDA%3D%3D";
+    const PUBLIC_END_POINT = process.env.PUBLIC_END_POINT || "http://apis.data.go.kr/B551011/GoCamping";
+    
+    const HomeList = async () => {
+        const url = `/basedList?serviceKey=${process.env.SECRET_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`;
         
-        return campingClient.get(url)
-    }
+        try {
+            const response = await campingClient.get(url);
+            return response.data;
+        } catch (error) {
+            console.error("API 요청 에러:", error);
+            throw error;
+        }
+    };
 
     useEffect(() => {
         const fetchData = async () => {

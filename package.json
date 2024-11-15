@@ -16,6 +16,7 @@
     "axios": "^1.7.7",
     "eslint": "8.57.0",
     "eslint-config-next": "14.2.5",
+    "http-proxy-middleware": "^3.0.3",
     "injectable": "^0.0.1",
     "inversify": "^6.0.3",
     "next": "14.2.5",
