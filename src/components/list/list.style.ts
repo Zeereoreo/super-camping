@@ -4,10 +4,13 @@ export namespace ListStyle{
     export const Container = styled.div`
         display: flex;
         flex-direction: column;
-        border: 1px solid #000000;
+        margin-top: 0;
+        /* border: 1px solid #000000; */
         width: 100%;
         height: 75vh;
         min-height: 70vh;
+        overflow-y: auto;
+        scroll-behavior: smooth;
     `;
 
     export namespace List{
@@ -16,10 +19,9 @@ export namespace ListStyle{
             /* height: 500px; */
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: start;
             align-items: center;
-            overflow-y: auto;
-            scroll-behavior: smooth;
+            
         `
 
         export const Item = styled.div`

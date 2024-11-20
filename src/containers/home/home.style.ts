@@ -7,8 +7,8 @@ export namespace HomeStyle{
         flex-direction: column;
         width: 40vh;
         min-width: 40vh;
-        height: 100vh;
-        min-height: 100vh;
+        /* height: 100vh; */
+        /* min-height: 100vh; */
         border: 1px solid #000000;
         justify-content: center;
         align-items: center;

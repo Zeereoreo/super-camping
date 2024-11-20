@@ -14,7 +14,7 @@ export default function HomeView() {
 
         };
     },[])
-    // console.log(typeof state);
+    // console.log( state);
     return (
             <HomeStyle.Container>
                 <HeaderView />
