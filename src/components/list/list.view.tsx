@@ -4,7 +4,8 @@ import { ListStyle } from "./list.style";
 
 export default function ListView({ data }: ListProps) {
 
-    // console.log(data)
+    console.log(data)
+    
     return (
         <ListStyle.Container>
             <ListStyle.List.Container>
@@ -12,6 +13,8 @@ export default function ListView({ data }: ListProps) {
                     <ListStyle.List.Item key={i}>
                         <h3>{list.facltNm}</h3>
                         <p>{list.lineIntro}</p>
+                        <p>{list.induty}</p>
+                        
                     </ListStyle.List.Item>
                 ))}
             </ListStyle.List.Container>

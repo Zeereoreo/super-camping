@@ -8,7 +8,7 @@ import { useMemo } from "react";
 import { useHomeHook } from "./home.hook";
 
 export default function HomeView() {
-    const {state} = useHomeHook();
+    const {state,list} = useHomeHook();
     const OnClickedHome = useMemo(() =>{
         return (type : any) => () => {
 
@@ -19,7 +19,7 @@ export default function HomeView() {
             <HomeStyle.Container>
                 <HeaderView />
                 <MenuView />
-                <ListView data = {state}/>
+                <ListView data = {list}/>
                 <FooterView />
             </HomeStyle.Container>
     )

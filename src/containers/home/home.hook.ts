@@ -2,9 +2,12 @@ import axios, { Axios } from 'axios'
 import {useEffect, useState} from 'react'
 import {campingClient} from "../../infras/api/index"
 import { Item } from '@/src/components/list/list.prop';
+import { useRecoilState } from 'recoil';
+import { ListAtom } from '@/src/recoil/atom/list.atom';
 
 export function useHomeHook(){
     const [state, setState] =  useState<Item[]>([]);
+    const [ list, setList ] = useRecoilState(ListAtom)
 
     
     const HomeList = async () => {
@@ -23,7 +26,8 @@ export function useHomeHook(){
         const fetchData = async () => {
             try {
                 const response = await HomeList();
-                console.log(response)
+                console.log(typeof response)
+                setList(response)
                 setState(response); 
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -35,6 +39,7 @@ export function useHomeHook(){
     }, [])
     
     return {
-        state 
+        state,
+        list
     }
 }

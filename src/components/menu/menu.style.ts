@@ -16,9 +16,11 @@ export namespace MenuStyle{
             width: 100%;
             flex-direction: row;
             justify-content: space-evenly;
+            
         `
         export const Icon = styled.div`
             border: 1px solid #000000;
+            cursor: pointer;
 
         `
     }

@@ -4,6 +4,9 @@ import styled from "styled-components";
 import HomeView from '../containers/home/home.view'
 import SidePageView from '../containers/sidepage/sidepage.view'
 import { media } from "../providers/theme/constants/media";
+import { RecoilRoot } from "recoil";
+import { GlobalStyleProvider } from "../providers/global-style/global-style.provider";
+import { ThemeProvider } from "../providers/theme/theme.provider";
 
 const PageContainer = styled.div`
     display: flex;
@@ -27,11 +30,17 @@ const PageContainer = styled.div`
 
 export default function Main() {
   return (
-    <PageContainer>
-      <SidePageView>
-      </SidePageView>
-      <HomeView>
-      </HomeView>
-    </PageContainer>
+    <RecoilRoot>
+      <ThemeProvider>
+        <GlobalStyleProvider>
+          <PageContainer>
+                    <SidePageView>
+                    </SidePageView>
+                    <HomeView>
+                    </HomeView>
+          </PageContainer>
+        </GlobalStyleProvider>
+      </ThemeProvider>
+    </RecoilRoot>
   )
 }
