@@ -8,7 +8,7 @@ export default function FooterView(){
             <FooterStyle.List.Container>
                 <FooterStyle.List.Icon>home</FooterStyle.List.Icon>
                 <FooterStyle.List.Icon>search</FooterStyle.List.Icon>
-                <FooterStyle.List.Icon>heart</FooterStyle.List.Icon>
+                <FooterStyle.List.Icon>favorite</FooterStyle.List.Icon>
                 <FooterStyle.List.Icon>my</FooterStyle.List.Icon>
             </FooterStyle.List.Container>
         </FooterStyle.Container>

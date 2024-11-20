@@ -15,6 +15,7 @@ export namespace HeaderStyle{
     export namespace Logo{
         export const Container = styled.div`
             border: 1px solid #000000;
+            cursor: pointer;
         `
         export const Image = styled.div`
             

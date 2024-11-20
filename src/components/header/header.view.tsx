@@ -1,5 +1,6 @@
 
-import { useHeaderHook } from "./header.Hook";
+
+import { useHeaderHook } from "./header.hook";
 import { HeaderStyle } from "./header.style";
 
 export default function HeaderView(){
