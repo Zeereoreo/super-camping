@@ -8,7 +8,7 @@ export function useHeaderHook(){
     const router = useRouter();
 
     const onClickedMainPage = ()=>{
-        console.log("home")
+        // console.log("home")
         router.push("/search")
     }
 

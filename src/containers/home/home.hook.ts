@@ -1,14 +1,25 @@
 import axios, { Axios } from 'axios'
-import {useEffect, useState} from 'react'
+import {useEffect, useMemo, useState} from 'react'
 import {campingClient} from "../../infras/api/index"
 import { Item } from '@/src/components/list/list.prop';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { ListAtom } from '@/src/recoil/atom/list.atom';
+import { MenuAtom } from '@/src/recoil/atom/menu.atom';
 
 export function useHomeHook(){
     const [state, setState] =  useState<Item[]>([]);
     const [ list, setList ] = useRecoilState(ListAtom)
-
+    const selectedMenu = useRecoilValue(MenuAtom);
+    console.log(list)
+    const filteredList = useMemo(() => {
+        if (!selectedMenu || selectedMenu.length === 0) return list;
+        return list.filter(item => {
+            const itemIndutyArray = item.induty.split(","); 
+            return itemIndutyArray.some((e: string) => e === selectedMenu);
+        });
+    }, [list, selectedMenu]);
+    
+    console.log(filteredList, "필터리스트");
     
     const HomeList = async () => {
         const url = `/basedList?serviceKey=${process.env.NEXT_PUBLIC_SECRET_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`;
@@ -28,18 +39,19 @@ export function useHomeHook(){
                 const response = await HomeList();
                 console.log(typeof response)
                 setList(response)
-                setState(response); 
+                // setState(response); 
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         }
 
         fetchData();
-        // console.log(state)
-    }, [])
+        // console.log(list)
+    }, [setList])
     
     return {
         state,
-        list
+        list,
+        filteredList
     }
 }

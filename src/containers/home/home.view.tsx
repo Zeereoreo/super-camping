@@ -6,20 +6,17 @@ import MenuView from "@/src/components/menu/menu.view";
 import SidePageView from "../sidepage/sidepage.view";
 import { useMemo } from "react";
 import { useHomeHook } from "./home.hook";
+import { useRecoilValue } from "recoil";
+import { MenuAtom } from "@/src/recoil/atom/menu.atom";
 
 export default function HomeView() {
-    const {state,list} = useHomeHook();
-    const OnClickedHome = useMemo(() =>{
-        return (type : any) => () => {
-
-        };
-    },[])
-    // console.log( state);
+    const {state,list, filteredList} = useHomeHook();
+    
     return (
             <HomeStyle.Container>
                 <HeaderView />
                 <MenuView />
-                <ListView data = {list}/>
+                <ListView data = {filteredList}/>
                 <FooterView />
             </HomeStyle.Container>
     )

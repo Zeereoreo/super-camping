@@ -1,10 +1,12 @@
-// ListView.tsx
+
+import { useRecoilValue } from "recoil";
 import { ListProps } from "./list.prop";
 import { ListStyle } from "./list.style";
+import { MenuAtom } from "@/src/recoil/atom/menu.atom";
+import { useMemo } from "react";
 
 export default function ListView({ data }: ListProps) {
 
-    console.log(data)
     
     return (
         <ListStyle.Container>

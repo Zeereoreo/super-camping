@@ -4,9 +4,9 @@ import { v4 } from "uuid";
 
 export const ListAtom = atom({
     key: `list${v4()}`,
-    default: {
+    default: []
         // pages: 0,
         // list: <Item[]>{},
-    },
+    ,
 
 })
