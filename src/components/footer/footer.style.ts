@@ -26,6 +26,7 @@ export namespace FooterStyle{
             align-items: center;
             width: 7vh;
             height: 100%;
+            cursor: pointer;
         `
     }
 }
