@@ -3,11 +3,12 @@ import { useRecoilValue } from "recoil";
 import { ListProps } from "./list.prop";
 import { ListStyle } from "./list.style";
 import { MenuAtom } from "@/src/recoil/atom/menu.atom";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { StarIcon } from "lucide-react";
 
 export default function ListView({ data }: ListProps) {
 
-    
+    const [isFavorite , setIsFavorite] = useState(false)
     return (
         <ListStyle.Container>
             <ListStyle.List.Container>
@@ -16,7 +17,11 @@ export default function ListView({ data }: ListProps) {
                         <h3>{list.facltNm}</h3>
                         <p>{list.lineIntro}</p>
                         <p>{list.induty}</p>
-                        
+                        {isFavorite ? (
+                            <StarIcon fill={'#FFD700'} stroke={'#FFD700'} />
+                            ) : (
+                            <StarIcon fill={'transparent'} className={'text-gray-400'} />
+                            )}
                     </ListStyle.List.Item>
                 ))}
             </ListStyle.List.Container>
