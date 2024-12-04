@@ -4,11 +4,15 @@ import { ListProps } from "./list.prop";
 import { ListStyle } from "./list.style";
 import { MenuAtom } from "@/src/recoil/atom/menu.atom";
 import { useMemo, useState } from "react";
-import { StarIcon } from "lucide-react";
+import { Pointer, StarIcon } from "lucide-react";
 
 export default function ListView({ data }: ListProps) {
 
     const [isFavorite , setIsFavorite] = useState(false)
+
+    const onFavoriteCheck = () =>{
+        setIsFavorite(!true)
+    }
     return (
         <ListStyle.Container>
             <ListStyle.List.Container>
@@ -18,9 +22,9 @@ export default function ListView({ data }: ListProps) {
                         <p>{list.lineIntro}</p>
                         <p>{list.induty}</p>
                         {isFavorite ? (
-                            <StarIcon fill={'#FFD700'} stroke={'#FFD700'} />
+                            <StarIcon fill={'#FFD700'} stroke={'#FFD700'} onClick={onFavoriteCheck}/>
                             ) : (
-                            <StarIcon fill={'transparent'} className={'text-gray-400'} />
+                            <StarIcon fill={'transparent'}/>
                             )}
                     </ListStyle.List.Item>
                 ))}
