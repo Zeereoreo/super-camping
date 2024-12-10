@@ -5,7 +5,7 @@ export namespace HomeStyle{
     export const Container = styled.div`
         display: flex;
         flex-direction: column;
-        width: 40vh;
+        width: 50vh;
         min-width: 40vh;
         /* height: 100vh; */
         /* min-height: 100vh; */

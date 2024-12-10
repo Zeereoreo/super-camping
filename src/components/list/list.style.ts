@@ -1,3 +1,5 @@
+import { Container } from './../../containers/sidepage/sidepage.style';
+import { StarIcon } from "lucide-react";
 import styled from "styled-components";
 
 export namespace ListStyle{
@@ -20,19 +22,52 @@ export namespace ListStyle{
             display: flex;
             flex-direction: column;
             justify-content: start;
-            align-items: center;
+            align-items: start;
             
         `
 
         export const Item = styled.div`
+            padding: 2%;
             border: 1px solid #000000;
-            height: 30vh;
+            height: 40vh;
             min-height: 30vh;
             width: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: start;
+            align-items: start;
         `
+
+        export const Image = styled.div<{imageUrl:string}>`
+            width: 100%;
+            height: 70%;
+            background-image: url(${(props) => props.imageUrl});
+            background-size: cover;
+            background-position: center;
+            border-radius: 2vh;
+        `
+
+        export const Button = styled(StarIcon)<{ isFavorite: boolean }>`
+            fill: ${(props) => (props.isFavorite ? "#FFD700" : "transparent")};
+            stroke: ${(props) => (props.isFavorite ? "#FFD700" : "#000")};
+            cursor: pointer;
+
+            &:hover {
+            fill: ${(props) => (props.isFavorite ? "#FFC107" : "#FFD700")};
+            stroke: ${(props) => (props.isFavorite ? "#FFC107" : "#FFD700")};
+            }
+        `
+
+        export namespace Detail{
+            export const Container = styled.div`
+            
+            `
+            export const Title = styled.div`
+            `
+            export const Type = styled.div`
+            `
+            export const Expain = styled.div`
+            `
+        }
     }
 }

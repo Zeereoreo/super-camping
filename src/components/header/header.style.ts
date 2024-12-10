@@ -18,7 +18,13 @@ export namespace HeaderStyle{
             cursor: pointer;
         `
         export const Image = styled.div`
-            
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/1;
+            background-image: url('/images/h_sp_logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         `
     }
 
