@@ -9,7 +9,7 @@ export function useHeaderHook(){
 
     const onClickedMainPage = ()=>{
         // console.log("home")
-        router.push("/search")
+        // router.push("/search")
     }
 
     return {

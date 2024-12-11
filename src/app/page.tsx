@@ -7,6 +7,8 @@ import { media } from "../providers/theme/constants/media";
 import { RecoilRoot } from "recoil";
 import { GlobalStyleProvider } from "../providers/global-style/global-style.provider";
 import { ThemeProvider } from "../providers/theme/theme.provider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Provider } from "../providers/provider";
 
 const PageContainer = styled.div`
     display: flex;
@@ -28,19 +30,17 @@ const PageContainer = styled.div`
 
 `
 
+const queryClient = new QueryClient();
+
 export default function Main() {
-  return (
-    <RecoilRoot>
-      <ThemeProvider>
-        <GlobalStyleProvider>
-          <PageContainer>
+    return (
+            <Provider>
+                <PageContainer>
                     <SidePageView>
                     </SidePageView>
                     <HomeView>
                     </HomeView>
-          </PageContainer>
-        </GlobalStyleProvider>
-      </ThemeProvider>
-    </RecoilRoot>
-  )
+                </PageContainer>
+            </Provider>
+    )
 }

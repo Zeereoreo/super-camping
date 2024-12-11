@@ -1,4 +1,4 @@
-import { Container } from './../../containers/sidepage/sidepage.style';
+
 import { StarIcon } from "lucide-react";
 import styled from "styled-components";
 
@@ -36,6 +36,7 @@ export namespace ListStyle{
             flex-direction: column;
             justify-content: start;
             align-items: start;
+            cursor: pointer;
         `
 
         export const Image = styled.div<{imageUrl:string}>`
@@ -60,14 +61,20 @@ export namespace ListStyle{
 
         export namespace Detail{
             export const Container = styled.div`
-            
+
             `
-            export const Title = styled.div`
+            export const Title = styled.h2`
             `
-            export const Type = styled.div`
+            export const Type = styled.p`
             `
-            export const Expain = styled.div`
+            export const Expain = styled.p`
             `
         }
+    }
+
+    export namespace Detail{
+        export const Container = styled.div`
+            
+        `
     }
 }
