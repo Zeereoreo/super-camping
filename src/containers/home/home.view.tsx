@@ -1,3 +1,5 @@
+'use client'
+
 import HeaderView from "@/src/components/header/header.view";
 import { HomeStyle } from "./home.style";
 import ListView from "@/src/components/list/list.view";

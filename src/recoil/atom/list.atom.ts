@@ -3,7 +3,7 @@ import { atom } from "recoil";
 import { v4 } from "uuid";
 
 export const ListAtom = atom({
-    key: `listAtom`,
+    key: `list${v4()}`,
     default: []
         // pages: 0,
         // list: <Item[]>{},
