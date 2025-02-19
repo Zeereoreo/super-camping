@@ -1,17 +1,26 @@
+import Link from "next/link";
 import { useMenuHook } from "./menu.hook";
 import { MenuStyle } from "./menu.style";
 
 
-export default function MenuView(){
+export default function MenuView() {
     const { onClickedListChange } = useMenuHook();
 
     return (
         <MenuStyle.Container>
             <MenuStyle.List.Container>
-                <MenuStyle.List.Icon onClick={()=>onClickedListChange("일반야영장")}>auto camping</MenuStyle.List.Icon>
-                <MenuStyle.List.Icon onClick={()=>onClickedListChange("글램핑")}>glamping</MenuStyle.List.Icon>
-                <MenuStyle.List.Icon onClick={()=>onClickedListChange("카라반")}>caravan</MenuStyle.List.Icon>
-                <MenuStyle.List.Icon onClick={()=>onClickedListChange("펜션")}>pension</MenuStyle.List.Icon>
+                <Link href={`/pages/autocamping`}>
+                    <MenuStyle.List.Icon>auto camping</MenuStyle.List.Icon>
+                </Link>
+                <Link href={`/pages/glamping`}>
+                    <MenuStyle.List.Icon >glamping</MenuStyle.List.Icon>
+                </Link>
+                <Link href={`/pages/caravan`}>
+                    <MenuStyle.List.Icon >caravan</MenuStyle.List.Icon>
+                </Link>
+                <Link href={`/pages/pension`}>
+                    <MenuStyle.List.Icon >pension</MenuStyle.List.Icon>
+                </Link>
             </MenuStyle.List.Container>
         </MenuStyle.Container>
     )
