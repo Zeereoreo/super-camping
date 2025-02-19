@@ -1,5 +1,9 @@
-import { PropsWithChildren } from "react";
+import HomeView from "@/src/containers/home/home.view";
+import { PropsWithChildren, Suspense } from "react";
 
 export default function HomeLayOut({children} : PropsWithChildren){
-    return <main className={'container prose py-10'}>hi{children}</main>
+    return 
+    // <Suspense>
+    //     <HomeView/>
+    // </Suspense>
 }

@@ -10,7 +10,7 @@ export function useHomeHook(){
     const [state, setState] =  useState<Item[]>([]);
     const [ list, setList ] = useRecoilState(ListAtom)
     const selectedMenu = useRecoilValue(MenuAtom);
-    console.log(list)
+    // console.log(list)
     const filteredList = useMemo(() => {
         if (!selectedMenu || selectedMenu.length === 0) return list;
         return list.filter(item => {
@@ -19,7 +19,7 @@ export function useHomeHook(){
         });
     }, [list, selectedMenu]);
     
-    console.log(filteredList, "필터리스트");
+    // console.log(filteredList, "필터리스트");
     
     const HomeList = async () => {
         const url = `/basedList?serviceKey=${process.env.NEXT_PUBLIC_SECRET_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`;
@@ -37,7 +37,7 @@ export function useHomeHook(){
         const fetchData = async () => {
             try {
                 const response = await HomeList();
-                console.log(typeof response)
+                console.log( response)
                 setList(response)
                 // setState(response); 
             } catch (error) {
@@ -48,7 +48,7 @@ export function useHomeHook(){
         fetchData();
         // console.log(list)
     }, [setList])
-    
+    // console.log(list)
     return {
         state,
         list,
