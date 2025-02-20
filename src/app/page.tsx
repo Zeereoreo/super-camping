@@ -13,28 +13,26 @@ export const PageContainer = styled.div`
     align-items: center;
     background-color: #DCE8D0;
     ${media.width({
-    small: `
+  small: `
       flex-direction: column;
     `,
-    medium: `
+  medium: `
       flex-direction: row;
     `,
-    large: `
+  large: `
       flex-direction: row;
     `,
-  })}
+})}
 
 `
 
 export default function Main() {
-    return (
-            <Provider>
-                <PageContainer>
-                    <SidePageView>
-                    </SidePageView>
-                    <HomeView>
-                    </HomeView>
-                </PageContainer>
-            </Provider>
-    )
+  return (
+    <Provider>
+      <PageContainer>
+        <SidePageView />
+        <HomeView />
+      </PageContainer>
+    </Provider>
+  )
 }

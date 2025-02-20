@@ -9,20 +9,22 @@ import { MenuAtom } from '@/src/recoil/atom/menu.atom';
 export function useHomeHook(){
     const [state, setState] =  useState<Item[]>([]);
     const [ list, setList ] = useRecoilState(ListAtom)
-    const selectedMenu = useRecoilValue(MenuAtom);
+    const [isLoading, setIsLoading] = useState(true);
+
+    // const selectedMenu = useRecoilValue(MenuAtom);
     // console.log(list)
-    const filteredList = useMemo(() => {
-        if (!selectedMenu || selectedMenu.length === 0) return list;
-        return list.filter(item => {
-            const itemIndutyArray = item.induty.split(","); 
-            return itemIndutyArray.some((e: string) => e === selectedMenu);
-        });
-    }, [list, selectedMenu]);
+    // const filteredList = useMemo(() => {
+    //     if (!selectedMenu || selectedMenu.length === 0) return list;
+    //     return list.filter(item => {
+    //         const itemIndutyArray = item.induty.split(","); 
+    //         return itemIndutyArray.some((e: string) => e === selectedMenu);
+    //     });
+    // }, [list, selectedMenu]);
     
     // console.log(filteredList, "필터리스트");
     
     const HomeList = async () => {
-        const url = `/basedList?serviceKey=${process.env.NEXT_PUBLIC_SECRET_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`;
+        const url = `/basedList?serviceKey=${process.env.NEXT_PUBLIC_SECRET_KEY}&numOfRows=2&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`;
         
         try {
             const response = await campingClient.get(url);
@@ -42,6 +44,8 @@ export function useHomeHook(){
                 // setState(response); 
             } catch (error) {
                 console.error("Error fetching data:", error);
+            } finally {
+                setIsLoading(false);
             }
         }
 
@@ -52,6 +56,7 @@ export function useHomeHook(){
     return {
         state,
         list,
-        filteredList
+        isLoading
+        // filteredList
     }
 }

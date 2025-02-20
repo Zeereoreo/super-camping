@@ -24,8 +24,8 @@ export namespace FooterStyle{
             border: 1px solid #000000;
             display: flex;
             align-items: center;
-            width: 7vh;
-            height: 100%;
+            /* width: 7vh;
+            height: 100%; */
             cursor: pointer;
         `
     }

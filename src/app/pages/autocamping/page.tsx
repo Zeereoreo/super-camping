@@ -7,18 +7,18 @@ import SidePageView from "@/src/containers/sidepage/sidepage.view";
 import HeaderView from "@/src/components/header/header.view";
 import MenuView from "@/src/components/menu/menu.view";
 import DetailView from "@/src/containers/detail/detail.view";
+import { HomeStyle } from "@/src/containers/home/home.style";
+import AutoView from "@/src/containers/auto/auto.view";
 
-export default function AutoCampingPage(){
-    
+export default function AutoCampingPage() {
+
     return (
         <Suspense>
-        <PageContainer>
-            <SidePageView/>
-            <HeaderView/>
-            <MenuView/>
-            
-        </PageContainer>
+            <PageContainer>
+                <SidePageView />
+                <AutoView />
+            </PageContainer>
         </Suspense>
-        
+
     );
 }
