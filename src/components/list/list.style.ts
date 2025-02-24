@@ -1,5 +1,6 @@
 
 import { StarIcon } from "lucide-react";
+import Link from "next/link";
 import styled from "styled-components";
 
 export namespace ListStyle{
@@ -37,7 +38,15 @@ export namespace ListStyle{
             justify-content: start;
             align-items: start;
             cursor: pointer;
+            
         `
+
+        export const StyledLink = styled(Link)`
+        display: block;
+        text-decoration: none; /* 링크 스타일 초기화 */
+        color: inherit; /* 부모 요소의 텍스트 색상 상속 */
+        width: 100%;
+        `;
 
         export const Image = styled.div<{imageUrl:string}>`
             width: 100%;
@@ -45,7 +54,7 @@ export namespace ListStyle{
             background-image: url(${(props) => props.imageUrl});
             background-size: cover;
             background-position: center;
-            border-radius: 2vh;
+            /* border-radius: 2vh; */
         `
 
         export const Button = styled(StarIcon)<{ isFavorite: boolean }>`

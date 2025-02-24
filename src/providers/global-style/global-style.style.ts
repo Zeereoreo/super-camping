@@ -16,4 +16,12 @@ export const GlobalStyle = createGlobalStyle`
             background-color: #ffffff;
         `}
     }
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+        width: 100%;
+        height: 100%;
+    }
+
 `;
