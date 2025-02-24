@@ -5,6 +5,9 @@ export namespace DetailHeaderStyle{
         width: 100%;
         min-height: 5vh;
         height: 5vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     `
 
     export namespace Button{
@@ -13,7 +16,7 @@ export namespace DetailHeaderStyle{
         `
 
         export const Image = styled.div`
-            
+
         `
     }
 }
