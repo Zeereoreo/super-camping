@@ -24,7 +24,7 @@ export function useHomeHook(){
     // console.log(filteredList, "필터리스트");
     
     const HomeList = async () => {
-        const url = `/basedList?serviceKey=${process.env.NEXT_PUBLIC_SECRET_KEY}&numOfRows=2&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`;
+        const url = `/basedList?serviceKey=${process.env.NEXT_PUBLIC_SECRET_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`;
         
         try {
             const response = await campingClient.get(url);
