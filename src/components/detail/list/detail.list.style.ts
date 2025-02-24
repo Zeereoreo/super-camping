@@ -15,4 +15,17 @@ export namespace DetailListStyle{
             background-position: center;
         `
     }
+    export namespace Body{
+        export const Container = styled.div`
+            width: 100%;
+            height: auto;
+        `
+        export const Title = styled.div`
+            width: 100%;
+            height: auto;
+        `
+        export const Tag = styled.div`
+            width: 100%;
+        `
+    }
 }
