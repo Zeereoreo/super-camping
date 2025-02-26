@@ -2,10 +2,10 @@ import { ListAtom } from "@/src/recoil/atom/list.atom";
 import { MenuAtom } from "@/src/recoil/atom/menu.atom";
 import { useRecoilValue } from "recoil";
 
-export function useAutoHook(){
+export function usePensionHook(){
     const list = useRecoilValue(ListAtom)
     const selectedMenu = useRecoilValue(MenuAtom)
-    console.log(list)
+
     const filteredList = selectedMenu && selectedMenu.length > 0
         ? list.filter((item) => {
             const itemTags = item.induty.split(','); 

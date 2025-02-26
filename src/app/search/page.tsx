@@ -1,6 +1,17 @@
-export default function SearchView(){
+'use client'
+
+import { Suspense } from "react";
+import { PageContainer } from "../page";
+import SidePageView from "@/src/containers/sidepage/sidepage.view";
+import SearchView from "@/src/containers/search/search.view";
+
+export default function SearchPage() {
     return (
-        <div>검색
-        </div>
+        <Suspense>
+            <PageContainer>
+                <SidePageView />
+                <SearchView />
+            </PageContainer>
+        </Suspense>
     )
 }

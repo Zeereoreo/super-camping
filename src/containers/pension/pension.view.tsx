@@ -3,11 +3,13 @@ import { HomeStyle } from "../home/home.style";
 import MenuView from "@/src/components/menu/menu.view";
 import ListView from "@/src/components/list/list.view";
 import FooterView from "@/src/components/footer/footer.view";
-import { useAutoHook } from "./auto.hook";
-import { useHomeHook } from "../home/home.hook";
 
-export default function AutoView() {
-    const { list, filteredList } = useAutoHook()
+import { useHomeHook } from "../home/home.hook";
+import { usePensionHook } from "./pension.hook";
+
+
+export default function PensionView() {
+    const { list, filteredList } = usePensionHook()
     const { isLoading } = useHomeHook();
     if (isLoading) {
         return <p>Loading...</p>;

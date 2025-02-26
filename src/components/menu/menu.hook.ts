@@ -8,8 +8,8 @@ export function useMenuHook () {
     const [state, setState] = useState({})
     const [menuRecoil , setMenuRecoil] = useRecoilState(MenuAtom)
     
-    const onClickedListChange = (data:string) =>{
-        console.log(`${data}`)
+    const onClickedListChange = (data:string[]) =>{
+        console.log(data)
         setMenuRecoil(data)
     }
     return {

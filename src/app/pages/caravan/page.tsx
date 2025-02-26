@@ -7,6 +7,7 @@ import SidePageView from "@/src/containers/sidepage/sidepage.view";
 import HeaderView from "@/src/components/header/header.view";
 import MenuView from "@/src/components/menu/menu.view";
 import DetailView from "@/src/containers/detail/detail.view";
+import CaravanView from "@/src/containers/caravan/caravan.view";
 
 export default function CaravanPage() {
 
@@ -14,9 +15,7 @@ export default function CaravanPage() {
         <Suspense>
             <PageContainer>
                 <SidePageView />
-                <HeaderView />
-                <MenuView />
-
+                <CaravanView />
             </PageContainer>
         </Suspense>
 

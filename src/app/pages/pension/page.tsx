@@ -8,6 +8,7 @@ import HeaderView from "@/src/components/header/header.view";
 import MenuView from "@/src/components/menu/menu.view";
 import DetailView from "@/src/containers/detail/detail.view";
 import ListView from "@/src/components/list/list.view";
+import PensionView from "@/src/containers/pension/pension.view";
 
 export default function PensionPage() {
 
@@ -15,8 +16,7 @@ export default function PensionPage() {
         <Suspense>
             <PageContainer>
                 <SidePageView />
-                <HeaderView />
-                <MenuView />
+                <PensionView />
             </PageContainer>
         </Suspense>
 
