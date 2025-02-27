@@ -39,7 +39,7 @@ export function useHomeHook(){
         const fetchData = async () => {
             try {
                 const response = await HomeList();
-                console.log( response)
+                // console.log( response)
                 setList(response)
                 // setState(response); 
             } catch (error) {

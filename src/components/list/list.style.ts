@@ -43,8 +43,8 @@ export namespace ListStyle{
 
         export const StyledLink = styled(Link)`
         display: block;
-        text-decoration: none; /* 링크 스타일 초기화 */
-        color: inherit; /* 부모 요소의 텍스트 색상 상속 */
+        text-decoration: none;
+        color: inherit; 
         width: 100%;
         `;
 

@@ -11,11 +11,8 @@ import Link from "next/link";
 import styled from "styled-components";
 
 export default function ListView({ data }: ListProps) {
-    const { isFavorite, onFavoriteCheck } = useListHook()
-    const [selectedItem, setSelectedItem] = useState(null);
-    const handleItemClick = (item: any) => {
-        setSelectedItem(item);
-    };
+    const { isFavorite, onFavoriteCheck, handleItemClick, selectedItem } = useListHook()
+
 
 
     return (
@@ -24,15 +21,12 @@ export default function ListView({ data }: ListProps) {
                 {Array.isArray(data) && data.map((list, i) => (
                     <ListStyle.List.Item key={i}>
                         <Link href={`/pages/${list.contentId}`}>
-                            <ListStyle.List.Item>
-                                <ListStyle.List.Image $imageUrl={list.firstImageUrl} />
-                                <h3>{list.facltNm}</h3>
-                                <p>{list.lineIntro}</p>
-                                <p>{list.induty}</p>
-                                <ListStyle.List.Button $isFavorite={isFavorite} onClick={onFavoriteCheck} />
-                            </ListStyle.List.Item>
+                            <ListStyle.List.Image $imageUrl={list.firstImageUrl} />
+                            <h3>{list.facltNm}</h3>
+                            <p>{list.lineIntro}</p>
+                            <p>{list.induty}</p>
                         </Link>
-
+                        <ListStyle.List.Button $isFavorite={isFavorite} onClick={() => handleItemClick(list)} />
                     </ListStyle.List.Item>
                 ))}
             </ListStyle.List.Container>

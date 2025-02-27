@@ -1,9 +1,9 @@
 import { ListAtom } from "@/src/recoil/atom/list.atom";
 import { useRecoilValue } from "recoil";
 
-export function useSearchHook(){
+export function useFavoriteHook(){
     const list = useRecoilValue(ListAtom)
-    console.log(list)
+    // console.log(list)
 
     return{list}
 }
