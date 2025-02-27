@@ -1,11 +1,11 @@
-import { Link } from "lucide-react";
+import Link from "next/link"
 import { ListStyle } from "../list/list.style";
 import { FavoriteListStyle } from "./favoriteList.style";
 import useFavoriteListHook from "./favoriteList.hook";
 import { useListHook } from "../list/list.hook";
 
 export default function FavoriteListVeiw() {
-    const { favoriteItems } = useListHook()
+    const { favoriteItems, handleItemClick } = useListHook()
     console.log(favoriteItems)
     return (
         <FavoriteListStyle.Container>
@@ -18,7 +18,8 @@ export default function FavoriteListVeiw() {
                             <p>{list.lineIntro}</p>
                             <p>{list.induty}</p>
                         </Link>
-                        {/* <ListStyle.List.Button $isFavorite={isFavorite} onClick={() => handleItemClick(list)} /> */}
+                        <ListStyle.List.Button $isFavorite={favoriteItems.some(item => item.contentId === list.contentId)}
+                            onClick={() => handleItemClick(list)} />
                     </ListStyle.List.Item>
                 ))}
             </ListStyle.List.Container>

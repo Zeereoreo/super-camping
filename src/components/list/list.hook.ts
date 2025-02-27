@@ -7,6 +7,7 @@ export function useListHook(){
 
     const [isFavorite , setIsFavorite] = useState(false)
     const [favoriteItems, setFavoriteItems] = useState<CampingItem[]>([]);
+    
     const onFavoriteCheck = () =>{
         setIsFavorite(!isFavorite)
     }
@@ -14,8 +15,15 @@ export function useListHook(){
 
     const handleItemClick = (item: CampingItem) => {
         setFavoriteItems(prev => {
-            const updatedFavorites = [...prev, item];
-            // 로컬 스토리지에 저장
+            const updatedFavorites = [...prev];
+            const itemIndex = updatedFavorites.findIndex(favorite => favorite.contentId === item.contentId);
+
+            if (itemIndex !== -1) {
+                updatedFavorites.splice(itemIndex, 1);
+            } else {
+                updatedFavorites.push(item);
+            }
+
             localStorage.setItem("favoriteItems", JSON.stringify(updatedFavorites));
             return updatedFavorites;
         });

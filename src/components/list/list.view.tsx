@@ -11,7 +11,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 export default function ListView({ data }: ListProps) {
-    const { isFavorite, onFavoriteCheck, handleItemClick, selectedItem } = useListHook()
+    const { isFavorite, onFavoriteCheck, handleItemClick, selectedItem, favoriteItems } = useListHook()
 
 
 
@@ -26,7 +26,8 @@ export default function ListView({ data }: ListProps) {
                             <p>{list.lineIntro}</p>
                             <p>{list.induty}</p>
                         </Link>
-                        <ListStyle.List.Button $isFavorite={isFavorite} onClick={() => handleItemClick(list)} />
+                        <ListStyle.List.Button $isFavorite={favoriteItems.some(item => item.contentId === list.contentId)}
+                            onClick={() => handleItemClick(list)} />
                     </ListStyle.List.Item>
                 ))}
             </ListStyle.List.Container>
