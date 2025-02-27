@@ -42,8 +42,9 @@ export namespace SearchListStyle{
             width: 20%;
         `
 
-        export const ModalContainer = styled.div<{ isOpen: boolean; width: number }>`
+        export const ModalContainer = styled.div<{ $isOpen: boolean; width: number }>`
         position: fixed;
+        display: ${(props) => (props.$isOpen ? 'block' : 'none')};
         bottom: 0;
         height: 100%;
         /* left: 50%; */
@@ -53,7 +54,7 @@ export namespace SearchListStyle{
         background: white;
         box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
-        transform: translateY(${props => props.isOpen ? '0' : '100%'});
+        transform: translateY(${props => props.$isOpen ? '0' : '100%'});
         z-index: 999;
         `
 

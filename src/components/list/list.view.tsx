@@ -25,11 +25,11 @@ export default function ListView({ data }: ListProps) {
                     <ListStyle.List.Item key={i}>
                         <Link href={`/pages/${list.contentId}`}>
                             <ListStyle.List.Item>
-                                <ListStyle.List.Image imageUrl={list.firstImageUrl} />
+                                <ListStyle.List.Image $imageUrl={list.firstImageUrl} />
                                 <h3>{list.facltNm}</h3>
                                 <p>{list.lineIntro}</p>
                                 <p>{list.induty}</p>
-                                <ListStyle.List.Button isFavorite={isFavorite} onClick={onFavoriteCheck} />
+                                <ListStyle.List.Button $isFavorite={isFavorite} onClick={onFavoriteCheck} />
                             </ListStyle.List.Item>
                         </Link>
 

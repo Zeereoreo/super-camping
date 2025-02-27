@@ -34,7 +34,7 @@ export function useSearchListHook() {
     }, []);
     const toggleModal = () => {
         setIsModalOpen(prev => !prev);
-        console.log(homeWidth)
+        // console.log(homeWidth)
     };
     return {
         dateRange, isModalOpen,

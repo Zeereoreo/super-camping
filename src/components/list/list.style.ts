@@ -48,23 +48,23 @@ export namespace ListStyle{
         width: 100%;
         `;
 
-        export const Image = styled.div<{imageUrl:string}>`
+        export const Image = styled.div<{$imageUrl:string}>`
             width: 100%;
             height: 70%;
-            background-image: url(${(props) => props.imageUrl});
+            background-image: url(${(props) => props.$imageUrl});
             background-size: cover;
             background-position: center;
             /* border-radius: 2vh; */
         `
 
-        export const Button = styled(StarIcon)<{ isFavorite: boolean }>`
-            fill: ${(props) => (props.isFavorite ? "#FFD700" : "transparent")};
-            stroke: ${(props) => (props.isFavorite ? "#FFD700" : "#000")};
+        export const Button = styled(StarIcon)<{ $isFavorite: boolean }>`
+            fill: ${(props) => (props.$isFavorite ? "#FFD700" : "transparent")};
+            stroke: ${(props) => (props.$isFavorite ? "#FFD700" : "#000")};
             cursor: pointer;
 
             &:hover {
-            fill: ${(props) => (props.isFavorite ? "#FFC107" : "#FFD700")};
-            stroke: ${(props) => (props.isFavorite ? "#FFC107" : "#FFD700")};
+            fill: ${(props) => (props.$isFavorite ? "#FFC107" : "#FFD700")};
+            stroke: ${(props) => (props.$isFavorite ? "#FFC107" : "#FFD700")};
             }
         `
 

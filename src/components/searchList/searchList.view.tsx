@@ -14,7 +14,7 @@ export default function SearchListView() {
             </SearchListStyle.List.Container>
 
 
-            <SearchListStyle.List.ModalContainer isOpen={isModalOpen} width={homeWidth}>
+            <SearchListStyle.List.ModalContainer $isOpen={isModalOpen} width={homeWidth}>
                 <SearchListStyle.List.ModalContent>
                     <h2>모달 제목</h2>
                     <p>모달 내용</p>
