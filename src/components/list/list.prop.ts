@@ -1,3 +1,5 @@
+import { CampingItem } from "@/src/type/camping.item";
+
 export interface Item {
     contentId: string;
     facltNm: string;
@@ -6,5 +8,5 @@ export interface Item {
 }
 
 export interface ListProps {
-    data:{};
+    data:CampingItem[];
 }

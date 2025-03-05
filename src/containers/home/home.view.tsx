@@ -12,14 +12,14 @@ import { useRecoilValue } from "recoil";
 import { MenuAtom } from "@/src/recoil/atom/menu.atom";
 
 export default function HomeView() {
-    const {state,list} = useHomeHook();
-    
+    const { list } = useHomeHook();
+
     return (
-            <HomeStyle.Container>
-                <HeaderView />
-                <MenuView />
-                <ListView data = {list}/>
-                <FooterView />
-            </HomeStyle.Container>
+        <HomeStyle.Container>
+            <HeaderView />
+            <MenuView />
+            <ListView data={list} />
+            <FooterView />
+        </HomeStyle.Container>
     )
 }

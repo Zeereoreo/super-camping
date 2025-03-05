@@ -5,9 +5,10 @@ import { Item } from '@/src/components/list/list.prop';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { ListAtom } from '@/src/recoil/atom/list.atom';
 import { MenuAtom } from '@/src/recoil/atom/menu.atom';
+import { CampingItem } from '@/src/type/camping.item';
 
 export function useHomeHook(){
-    const [state, setState] =  useState<Item[]>([]);
+    const [state, setState] =  useState<CampingItem[]>([]);
     const [ list, setList ] = useRecoilState(ListAtom)
     const [isLoading, setIsLoading] = useState(true);
 
