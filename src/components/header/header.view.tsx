@@ -3,8 +3,8 @@
 import { useHeaderHook } from "./header.hook";
 import { HeaderStyle } from "./header.style";
 
-export default function HeaderView(){
-    const {onClickedMainPage} = useHeaderHook();
+export default function HeaderView() {
+    const { onClickedMainPage } = useHeaderHook();
 
 
     return (
