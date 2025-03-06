@@ -14,13 +14,21 @@ export default function SearchListView() {
             </SearchListStyle.List.Container>
 
 
-            <SearchListStyle.List.ModalContainer $isOpen={isModalOpen} width={homeWidth}>
-                <SearchListStyle.List.ModalContent>
-                    <h2>모달 제목</h2>
-                    <p>모달 내용</p>
-                    <button onClick={toggleModal}>닫기</button>
-                </SearchListStyle.List.ModalContent>
-            </SearchListStyle.List.ModalContainer>
+            <SearchListStyle.Modal.Container $isOpen={isModalOpen} width={homeWidth}>
+                <SearchListStyle.Modal.Content>
+                    <SearchListStyle.Modal.Title>
+                        <SearchListStyle.Modal.CloseButton onClick={toggleModal}>닫기</SearchListStyle.Modal.CloseButton>검색</SearchListStyle.Modal.Title>
+                    <SearchListStyle.Modal.SearchName />
+                    <SearchListStyle.Modal.Date />
+                    <SearchListStyle.Modal.People />
+                    <SearchListStyle.Modal.TagContainer>
+                        <SearchListStyle.Modal.Tag>태그1</SearchListStyle.Modal.Tag>
+                        <SearchListStyle.Modal.Tag>태그2</SearchListStyle.Modal.Tag>
+                        <SearchListStyle.Modal.Tag>태그3</SearchListStyle.Modal.Tag>
+                    </SearchListStyle.Modal.TagContainer>
+
+                </SearchListStyle.Modal.Content>
+            </SearchListStyle.Modal.Container>
         </SearchListStyle.Container>
     )
 }
