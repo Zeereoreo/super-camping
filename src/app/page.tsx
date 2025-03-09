@@ -5,6 +5,7 @@ import HomeView from '../containers/home/home.view'
 import SidePageView from '../containers/sidepage/sidepage.view'
 import { media } from "../providers/theme/constants/media";
 import { Provider } from "../providers/provider";
+import { RecoilRoot } from "recoil";
 
 export const PageContainer = styled.div`
     display: flex;
@@ -29,10 +30,12 @@ export const PageContainer = styled.div`
 export default function Main() {
   return (
     <Provider>
-      <PageContainer>
-        <SidePageView />
-        <HomeView />
-      </PageContainer>
+      <RecoilRoot>
+        <PageContainer>
+          <SidePageView />
+          <HomeView />
+        </PageContainer>
+      </RecoilRoot>
     </Provider>
   )
 }

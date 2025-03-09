@@ -3,25 +3,34 @@ import { ListProps } from "./list.prop";
 import { ListStyle } from "./list.style";
 import Link from "next/link";
 
-export default function ListView({ data }: ListProps) {
-    const { handleItemClick, favoriteItems, addList, lastItemRef } = useListHook(data);
+export default function ListView({ data, isSearchResult }: ListProps) {
+    const { handleItemClick, favoriteItems, addList, lastItemRef } = useListHook(data, isSearchResult);
+
+    // console.log("ListView 렌더링 - addList:", addList?.length);
+
+    if (!addList || addList.length === 0) {
+        return <div>데이터를 불러오는 중...</div>;
+    }
 
     return (
         <ListStyle.Container>
             <ListStyle.List.Container>
-                {Array.isArray(addList) && addList.map((list, i) => (
-                    <ListStyle.List.Item key={i} ref={i === addList.length - 1 ? lastItemRef : null}>
-                        <Link href={`/pages/${list.contentId}`}>
-                            <ListStyle.List.Image $imageUrl={list.firstImageUrl} />
-                            <h3>{list.facltNm}</h3>
-                            <p>{list.lineIntro}</p>
-                            <p>{list.induty}</p>
-                        </Link>
-                        <ListStyle.List.Button
-                            $isFavorite={favoriteItems.some(item => item.contentId === list.contentId)}
-                            onClick={() => handleItemClick(list)} />
-                    </ListStyle.List.Item>
-                ))}
+                {Array.isArray(addList) && addList.map((list, i) => {
+                    // console.log("아이템 렌더링:", list.facltNm);
+                    return (
+                        <ListStyle.List.Item key={list.contentId} ref={i === addList.length - 1 ? lastItemRef : null}>
+                            <Link href={`/pages/${list.contentId}`}>
+                                <ListStyle.List.Image $imageUrl={list.firstImageUrl} />
+                                <h3>{list.facltNm}</h3>
+                                <p>{list.lineIntro}</p>
+                                <p>{list.induty}</p>
+                            </Link>
+                            <ListStyle.List.Button
+                                $isFavorite={favoriteItems.some(item => item.contentId === list.contentId)}
+                                onClick={() => handleItemClick(list)} />
+                        </ListStyle.List.Item>
+                    );
+                })}
             </ListStyle.List.Container>
         </ListStyle.Container>
     );

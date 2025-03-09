@@ -1,12 +1,14 @@
 import { campingClient } from "@/src/infras/api";
 import { CampingItem } from "@/src/type/camping.item";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useMenuStore } from "@/src/zustand/store/menu.store";
 
-export function useListHook(initialData: CampingItem[]) {
+export function useListHook(initialData: CampingItem[], isSearchResult?: boolean) {
+    const selectedMenu = useMenuStore(state => state.selectedMenu);
     const [isFavorite, setIsFavorite] = useState(false);
     const [addList, setAddList] = useState<CampingItem[]>([]);
     const [favoriteItems, setFavoriteItems] = useState<CampingItem[]>([]);
-    const [hasMore, setHasMore] = useState(true);
+    const [hasMore, setHasMore] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const pageRef = useRef(1);
     const observerRef = useRef<IntersectionObserver | null>(null);
@@ -16,23 +18,30 @@ export function useListHook(initialData: CampingItem[]) {
     };
 
     const fetchMoreData = useCallback(async () => {
-        if (!hasMore || isLoading) return;
+        if (isSearchResult || !hasMore || isLoading) return;
 
         setIsLoading(true);
         const currentPage = pageRef.current;
-        console.log('Fetching page:', currentPage);
+        // console.log('Fetching page:', currentPage);
 
         const url = `/basedList?serviceKey=${process.env.NEXT_PUBLIC_SECRET_KEY}&numOfRows=10&pageNo=${currentPage}&MobileOS=ETC&MobileApp=AppTest&_type=json`;
 
         try {
             const response = await campingClient.get(url);
             const newItems = response.data.response.body.items.item || [];
-            console.log('New items:', newItems.length);
+            // console.log('New items:', newItems.length);
 
             if (newItems.length > 0) {
-                setAddList(prev => [...prev, ...newItems]);
+                setAddList(prev => {
+                    const filteredNewItems = selectedMenu && selectedMenu.length > 0
+                        ? newItems.filter((item: CampingItem) => {
+                            const itemTags = item.induty.split(',');
+                            return selectedMenu.some(menu => itemTags.includes(menu));
+                        })
+                        : newItems;
+                    return [...prev, ...filteredNewItems];
+                });
                 pageRef.current += 1;
-                console.log('Page increased to:', pageRef.current);
             } else {
                 setHasMore(false);
             }
@@ -46,15 +55,26 @@ export function useListHook(initialData: CampingItem[]) {
         } finally {
             setIsLoading(false);
         }
-    }, [hasMore, isLoading]);
+    }, [hasMore, isLoading, isSearchResult, selectedMenu]);
 
     useEffect(() => {
         if (initialData && initialData.length > 0) {
-            setAddList(initialData);
-            pageRef.current = 2;
-            setHasMore(true);
+            const filteredData = selectedMenu && selectedMenu.length > 0
+                ? initialData.filter((item: CampingItem) => {
+                    const itemTags = item.induty.split(',');
+                    return selectedMenu.some(menu => itemTags.includes(menu));
+                })
+                : initialData;
+            
+            setAddList(filteredData);
+            if (isSearchResult) {
+                setHasMore(false);
+            } else {
+                pageRef.current = 2;
+                setHasMore(true);
+            }
         }
-    }, [initialData]);
+    }, [initialData, isSearchResult, selectedMenu]);
 
     useEffect(() => {
         const storedFavorites = JSON.parse(localStorage.getItem("favoriteItems") || "[]");
@@ -78,6 +98,8 @@ export function useListHook(initialData: CampingItem[]) {
     };
 
     const lastItemRef = useCallback((node: HTMLDivElement | null) => {
+        if (isSearchResult || !hasMore || !node) return null;
+
         if (observerRef.current) {
             observerRef.current.disconnect();
         }
@@ -85,7 +107,7 @@ export function useListHook(initialData: CampingItem[]) {
         observerRef.current = new IntersectionObserver(
             (entries) => {
                 if (entries[0].isIntersecting && hasMore && !isLoading) {
-                    console.log('Last item intersection detected');
+                    // console.log('Last item intersection detected');
                     fetchMoreData();
                 }
             },
@@ -96,16 +118,14 @@ export function useListHook(initialData: CampingItem[]) {
             }
         );
 
-        if (node) {
-            observerRef.current.observe(node);
-        }
+        observerRef.current.observe(node);
 
         return () => {
             if (observerRef.current) {
                 observerRef.current.disconnect();
             }
         };
-    }, [hasMore, isLoading, fetchMoreData]);
+    }, [hasMore, isLoading, fetchMoreData, isSearchResult]);
 
     return {
         onFavoriteCheck,

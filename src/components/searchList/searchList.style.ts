@@ -142,6 +142,27 @@ export namespace SearchListStyle{
             height: 20%;
             
         `
+
+        export const SaveButton = styled.button`
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 50px;
+            background-color: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: #0056b3;
+            }
+        `
     }
         
 }

@@ -8,5 +8,6 @@ export interface Item {
 }
 
 export interface ListProps {
-    data:CampingItem[];
+    data: CampingItem[];
+    isSearchResult?: boolean;
 }

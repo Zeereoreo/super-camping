@@ -1,4 +1,4 @@
-export type CampingItem = {
+export interface CampingItem {
     contentId: string;
     facltNm: string;
     lineIntro: string;
@@ -62,23 +62,12 @@ export type CampingItem = {
     wtrplCo: string;
     brazierCl: string;
     sbrsCl: string;
-    sbrsEtc: string;
     posblFcltyCl: string;
-    posblFcltyEtc: string;
-    clturEventAt: string;
-    clturEvent: string;
-    exprnProgrmAt: string;
-    exprnProgrm: string;
-    extshrCo: string;
-    frprvtWrppCo: string;
-    frprvtSandCo: string;
-    fireSensorCo: string;
     themaEnvrnCl: string;
     eqpmnLendCl: string;
     animalCmgCl: string;
-    tourEraCl: string;
     firstImageUrl: string;
     createdtime: string;
     modifiedtime: string;
-  };
+}
   

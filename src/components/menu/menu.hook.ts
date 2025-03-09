@@ -1,18 +1,13 @@
-import { useRecoilState } from 'recoil';
-import { Item } from './../list/list.prop';
-import { useState } from "react"
-import { MenuAtom } from '@/src/recoil/atom/menu.atom';
+import { useMenuStore } from '@/src/zustand/store/menu.store';
 
-export function useMenuHook () {
-
-    const [state, setState] = useState({})
-    const [menuRecoil , setMenuRecoil] = useRecoilState(MenuAtom)
+export function useMenuHook() {
+    const setSelectedMenu = useMenuStore(state => state.setSelectedMenu);
     
-    const onClickedListChange = (data:string[]) =>{
-        console.log(data)
-        setMenuRecoil(data)
-    }
+    const onClickedListChange = (data: string[]) => {
+        setSelectedMenu(data);
+    };
+
     return {
         onClickedListChange
-    }
+    };
 }

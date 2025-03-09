@@ -1,3 +1,5 @@
+'use client';
+
 import HeaderView from "@/src/components/header/header.view";
 import { HomeStyle } from "../home/home.style";
 import FooterView from "@/src/components/footer/footer.view";
@@ -8,7 +10,7 @@ import SearchListView from "@/src/components/searchList/searchList.view";
 import { useHomeHook } from "../home/home.hook";
 
 export default function SearchView() {
-    const { list } = useSearchHook()
+    const { list } = useSearchHook();
     const { isLoading } = useHomeHook();
     if (isLoading) {
         return <p>Loading...</p>;
@@ -17,7 +19,7 @@ export default function SearchView() {
         <HomeStyle.Container>
             <HeaderView />
             <SearchListView />
-            <ListView data={list} />
+            <ListView data={list} isSearchResult={true} />
             <FooterView />
         </HomeStyle.Container>
     )

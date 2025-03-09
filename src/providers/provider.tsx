@@ -8,16 +8,16 @@ import { PropsWithChildren } from "react";
 
 const queryClient = new QueryClient();
 
-export function Provider({children} : PropsWithChildren){
-    return(
+export function Provider({ children }: PropsWithChildren) {
+    return (
         <RecoilRoot>
             <QueryClientProvider client={queryClient}>
-            <ThemeProvider>
-                <GlobalStyleProvider>
-                            {children}
-                </GlobalStyleProvider>
-            </ThemeProvider>
+                <ThemeProvider>
+                    <GlobalStyleProvider>
+                        {children}
+                    </GlobalStyleProvider>
+                </ThemeProvider>
             </QueryClientProvider>
-            </RecoilRoot>
+        </RecoilRoot>
     )
 }

@@ -18,7 +18,7 @@ export default function HomeView() {
         <HomeStyle.Container>
             <HeaderView />
             <MenuView />
-            <ListView data={list} />
+            <ListView data={list} isSearchResult={false} />
             <FooterView />
         </HomeStyle.Container>
     )
