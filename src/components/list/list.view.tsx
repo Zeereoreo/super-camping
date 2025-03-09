@@ -9,7 +9,7 @@ export default function ListView({ data, isSearchResult }: ListProps) {
     // console.log("ListView 렌더링 - addList:", addList?.length);
 
     if (!addList || addList.length === 0) {
-        return <div>데이터를 불러오는 중...</div>;
+        return <ListStyle.Container>데이터를 불러오는 중...</ListStyle.Container>;
     }
 
     return (
@@ -18,7 +18,10 @@ export default function ListView({ data, isSearchResult }: ListProps) {
                 {Array.isArray(addList) && addList.map((list, i) => {
                     // console.log("아이템 렌더링:", list.facltNm);
                     return (
-                        <ListStyle.List.Item key={list.contentId} ref={i === addList.length - 1 ? lastItemRef : null}>
+                        <ListStyle.List.Item
+                            key={list.contentId}
+                            ref={i === addList.length - 1 ? lastItemRef : undefined}
+                        >
                             <Link href={`/pages/${list.contentId}`}>
                                 <ListStyle.List.Image $imageUrl={list.firstImageUrl} />
                                 <h3>{list.facltNm}</h3>

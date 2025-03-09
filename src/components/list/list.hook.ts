@@ -98,7 +98,7 @@ export function useListHook(initialData: CampingItem[], isSearchResult?: boolean
     };
 
     const lastItemRef = useCallback((node: HTMLDivElement | null) => {
-        if (isSearchResult || !hasMore || !node) return null;
+        if (isSearchResult || !hasMore || !node) return;
 
         if (observerRef.current) {
             observerRef.current.disconnect();
