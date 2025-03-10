@@ -1,7 +1,7 @@
 'use client'
 
 import { Suspense } from "react";
-import { PageContainer } from "../page";
+import { PageContainer } from "../page.style";
 import SidePageView from "@/src/containers/sidepage/sidepage.view";
 import SearchView from "@/src/containers/search/search.view";
 import FavoriteView from "@/src/containers/favorite/favorite.view";

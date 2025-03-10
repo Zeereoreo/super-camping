@@ -2,7 +2,7 @@
 import { ListAtom } from "@/src/recoil/atom/list.atom"
 import { Suspense, use, useEffect } from "react"
 import { useRecoilState, useRecoilValue } from "recoil"
-import { PageContainer } from "../../page";
+import { PageContainer } from "../../page.style";
 import SidePageView from "@/src/containers/sidepage/sidepage.view";
 import HeaderView from "@/src/components/header/header.view";
 import MenuView from "@/src/components/menu/menu.view";

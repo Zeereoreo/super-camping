@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { useFootHook } from "./footer.hook";
+import { useFooterHook } from "./footer.hook";
 import { FooterStyle } from "./footer.style";
 
-
 export default function FooterView() {
-    // const { onClickedHomeListChange } = useFootHook();
+    const { onClickedHomeListChange } = useFooterHook();
+
     return (
         <FooterStyle.Container>
             <FooterStyle.List.Container>
-                <Link href={`/`}>
+                <Link href={`/`} onClick={() => onClickedHomeListChange('전체')}>
                     <FooterStyle.List.Icon>home</FooterStyle.List.Icon>
                 </Link>
                 <Link href={`/search`}>
@@ -22,5 +22,5 @@ export default function FooterView() {
                 </Link>
             </FooterStyle.List.Container>
         </FooterStyle.Container>
-    )
+    );
 }
