@@ -1,6 +1,4 @@
-'use client';
-
-import { useHeaderHook } from '@/src/components/header/header.hook';
+import { useHeaderHook } from "./header.hook";
 import { HeaderStyle } from "./header.style";
 
 export default function HeaderView() {
