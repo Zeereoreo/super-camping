@@ -25,7 +25,7 @@ export default function DetailListView() {
     return (
         <DetailListStyle.Constainer>
             <DetailHeaderView />
-            <DetailListStyle.Header.HeaderImg imageUrl={listItem?.firstImageUrl ?? ""} />
+            <DetailListStyle.Header.HeaderImg $imageUrl={listItem?.firstImageUrl ?? ""} />
             <DetailListStyle.Body.Container>
                 <DetailListStyle.Body.Tag>{listItem?.induty}</DetailListStyle.Body.Tag>
                 <DetailListStyle.Body.Title>{listItem?.facltNm}</DetailListStyle.Body.Title>

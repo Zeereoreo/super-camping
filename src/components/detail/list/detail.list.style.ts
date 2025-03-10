@@ -7,10 +7,10 @@ export namespace DetailListStyle{
     `
 
     export namespace Header{
-        export const HeaderImg = styled.div<{imageUrl:string}>`
+        export const HeaderImg = styled.div<{$imageUrl:string}>`
             width: 100%;
             height: 50%;
-            background-image: url(${(props) => props.imageUrl});
+            background-image: url(${(props) => props.$imageUrl});
             background-size: cover;
             background-position: center;
         `
