@@ -5,6 +5,7 @@ export function useMenuHook() {
     
     const onClickedListChange = (data: string[]) => {
         setSelectedMenu(data);
+        console.log(data)
     };
 
     return {

@@ -9,7 +9,7 @@ import { campingClient } from "@/src/infras/api";
 export function useHomeHook() {
     const [state, setState] = useState<CampingItem[]>([]);
     const [list, setList] = useRecoilState(ListAtom);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     // const selectedMenu = useRecoilValue(MenuAtom);
 

@@ -8,6 +8,7 @@ export const PageContainer = styled.div`
     align-items: center;
     background-color: #DCE8D0;
     min-height: 100vh;
+    overflow-y: hidden;
     ${media.width({
         small: `
             flex-direction: column;

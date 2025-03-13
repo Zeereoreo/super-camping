@@ -26,6 +26,8 @@ export function useListHook(initialData: CampingItem[], isSearchResult?: boolean
 
         const url = `/basedList?serviceKey=${process.env.NEXT_PUBLIC_SECRET_KEY}&numOfRows=10&pageNo=${currentPage}&MobileOS=ETC&MobileApp=AppTest&_type=json`;
 
+        
+
         try {
             const response = await campingClient.get(url);
             const newItems = response.data.response.body.items.item || [];

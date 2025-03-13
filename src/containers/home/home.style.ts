@@ -12,6 +12,7 @@ export namespace HomeStyle{
         border: 1px solid #000000;
         justify-content: center;
         align-items: center;
+        overflow-y: hidden;
         ${media.width({
             small:`
                 

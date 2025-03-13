@@ -6,6 +6,7 @@ import FooterView from "@/src/components/footer/footer.view";
 
 import { useHomeHook } from "../home/home.hook";
 import { usePensionHook } from "./pension.hook";
+import { ListStyle } from "@/src/components/list/list.style";
 
 
 export default function PensionView() {
@@ -18,7 +19,8 @@ export default function PensionView() {
         <HomeStyle.Container>
             <HeaderView />
             <MenuView />
-            <ListView data={filteredList} />
+            {/* <ListView data={filteredList} /> */}
+            <ListStyle.Container>준비중..</ListStyle.Container>
             <FooterView />
         </HomeStyle.Container>
     )
