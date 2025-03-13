@@ -8,7 +8,7 @@ module.exports = {
   rewrites: () => [
     {
       source: "/api/camping",
-      destination: "http://apis.data.go.kr/B551011/GoCamping/",
+      destination: "https://apis.data.go.kr/B551011/GoCamping/",
     },
   ],
 };
