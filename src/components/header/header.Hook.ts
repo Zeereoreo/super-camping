@@ -1,18 +1,15 @@
+'use client';
 
-import { useRouter } from 'next/navigation'
-import {useState} from 'react'
+import { useRouter } from 'next/navigation';
 
-
-export function useHeaderHook(){
-    const [state, setState] = useState()
+export function useHeaderHook() {
     const router = useRouter();
 
-    const onClickedMainPage = ()=>{
-        // console.log("home")
-        // router.push("/search")
-    }
+    const onClickHome = () => {
+        router.push('/');
+    };
 
     return {
-        onClickedMainPage
-    }
+        onClickHome
+    };
 }
