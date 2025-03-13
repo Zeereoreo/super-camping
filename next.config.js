@@ -5,4 +5,10 @@ module.exports = {
   compiler: {
     styledComponents: true,
   },
+  rewrites: () => [
+    {
+      source: "/api/camping",
+      destination: "http://apis.data.go.kr/B551011/GoCamping/",
+    },
+  ],
 };
